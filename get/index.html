@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SantaDial: a live call with Santa</title>
+<meta name="description" content="A live phone call with Santa. He knows your child's name, their wishes and what they're proud of. The first call is free.">
+<meta property="og:title" content="SantaDial: a live call with Santa">
+<meta property="og:description" content="Santa knows their name, their wishes and what they're proud of. The first call is free.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#060E22;--gold:#E9C27A;--red:#C62F2A;--text:#fff;--muted:rgba(255,255,255,.75)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 20%,#14244a 0%,var(--night) 70%);color:var(--text);font-family:Inter,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:32px 16px}
+main{max-width:420px;width:100%;text-align:center}
+.eyebrow{font-size:12px;letter-spacing:3px;color:var(--gold);font-weight:600}
+h1{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:44px;line-height:1.1;margin:10px 0 14px}
+p{color:var(--muted);font-size:17px;line-height:1.5;margin:0 0 28px}
+a.btn{display:block;height:56px;line-height:56px;border-radius:28px;font-weight:600;font-size:17px;text-decoration:none;margin:12px 0}
+.ios{background:var(--red);color:#fff}
+.android{border:1.5px solid var(--gold);color:var(--gold)}
+small{display:block;margin-top:22px;color:rgba(255,255,255,.5);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">NORTH POLE</div>
+  <h1>A live call with Santa</h1>
+  <p>Santa knows their name, their wishes and what they're proud of, and chats with them live. The first call is free.</p>
+  <a class="btn ios" href="https://apps.apple.com/app/id6823800189">Get it on the App Store</a>
+  <a class="btn android" href="https://play.google.com/store/apps/details?id=com.santadial.app">Get it on Google Play</a>
+  <small>Set up by a grown-up. <a href="../privacy/" style="color:inherit">Privacy</a></small>
+</main>
+<script>
+// Send phones straight to their store; anyone else sees both buttons.
+var ua = navigator.userAgent || "";
+if (/iPhone|iPad|iPod/i.test(ua)) location.replace("https://apps.apple.com/app/id6823800189");
+else if (/Android/i.test(ua)) location.replace("https://play.google.com/store/apps/details?id=com.santadial.app");
+</script>
+</body>
+</html>
