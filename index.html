@@ -231,6 +231,33 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* follow us (shown until both stores are live) */
+.follow{margin-top:22px}
+.follow p.ask{font-size:15.5px;color:var(--text);margin:0 0 12px}.follow p.ask b{color:var(--gold2)}
+.fbtns{display:flex;gap:12px;flex-wrap:wrap}
+.fbtn{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:#fff;width:86px;transition:transform .2s}
+.fbtn i{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;position:relative;animation:wiggle 3.6s ease-in-out infinite;box-shadow:0 8px 22px rgba(0,0,0,.45)}
+.fbtn i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--gold);opacity:0;animation:ring 2.4s ease-out infinite}
+.fbtn+.fbtn i,.fbtn+.fbtn i::after{animation-delay:.5s}.fbtn+.fbtn+.fbtn i,.fbtn+.fbtn+.fbtn i::after{animation-delay:1s}
+.fbtn svg{width:28px;height:28px}
+.fbtn b{font-size:14px;line-height:1.1;margin-top:5px}.fbtn small{font-size:12px;color:var(--muted)}
+.fbtn:hover,.fbtn:focus-visible{transform:translateY(-3px) scale(1.06)}
+.fbtn.ig i{background:radial-gradient(circle at 30% 107%,#fdf497 0,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.fbtn.tt i{background:#000;box-shadow:-2px -2px 0 #25F4EE,2px 2px 0 #FE2C55,0 8px 22px rgba(0,0,0,.45)}
+.fbtn.fb i{background:#1877F2}
+@keyframes wiggle{0%,86%,100%{transform:rotate(0)}89%{transform:rotate(-9deg) scale(1.08)}92%{transform:rotate(8deg) scale(1.08)}95%{transform:rotate(-4deg)}}
+@keyframes ring{0%{transform:scale(.9);opacity:.7}70%,100%{transform:scale(1.35);opacity:0}}
+.followband{text-align:center;padding:54px 0}
+.followband h2{font-size:clamp(28px,5vw,40px);margin-bottom:10px}
+.followband .fbtns{justify-content:center;gap:12px;margin-top:22px;flex-wrap:nowrap}
+.followband .fbtn{width:100px}.followband .fbtn i{width:76px;height:76px}.followband .fbtn svg{width:36px;height:36px}
+.followband .fbtn b{font-size:16px}
+.dfollow{display:none;margin-left:auto;gap:8px}
+.dfollow a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%}
+.dfollow svg{width:22px;height:22px}
+.dfollow .ig{background:radial-gradient(circle at 30% 107%,#fdf497 0,#fd5949 45%,#d6249f 60%,#285AEB 90%)}.dfollow .tt{background:#000;box-shadow:-1px -1px 0 #25F4EE,1px 1px 0 #FE2C55}.dfollow .fb{background:#1877F2}
+.dock>div:nth-of-type(1){min-width:0}.prelaunch .dock .store{display:none}.prelaunch .dock .dfollow{display:flex}
 @media(min-width:720px){.band img{width:170px;height:170px;margin:-10px 0}.band .wrap{gap:40px}.cards{grid-template-columns:repeat(3,1fr)}.steps{grid-template-columns:repeat(3,1fr)}.steps li{padding:76px 22px 22px}.offer{grid-template-columns:1.3fr 1fr}table{font-size:15.5px}th,td{padding:15px 18px}th{font-size:15.5px;padding:15px 18px}}
 @media(min-width:940px){.links{display:flex}.hero{padding-top:76px}.hero .wrap{grid-template-columns:1.1fr .9fr}.stage{height:560px}.phone{width:262px}.p2{margin-left:-215px}.two{grid-template-columns:1fr 1fr;gap:56px}.qr{display:flex}.dock{display:none}footer{padding-bottom:40px}}
 @media(max-width:380px){.store{min-width:0;flex:1;padding:0 12px 0 10px;font-size:17px}.store svg{width:26px;height:26px}}
@@ -260,6 +287,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  <a class="store js-android" href="get/?src=home" aria-label="Get it on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon fill="#00C3FF" points="3,2 3,22 13,12"/><polygon fill="#00E676" points="3,2 13,12 16.6,9.6"/><polygon fill="#FF3D47" points="3,22 13,12 16.6,14.4"/><polygon fill="#FFD400" points="16.6,9.6 21,12 16.6,14.4 13,12"/></svg><span><small>Get it on</small>Google Play</span></a>
 </div>
    <p class="fine" id="storenote">Try a free sample call. For iPhone and Android.</p>
+   <div class="follow js-prelaunch"><p class="ask"><b>Coming soon to the App Store and Google Play.</b> Follow us to be the first to use the app and get the free calls.</p><div class="fbtns"><a class="fbtn ig" href="https://www.instagram.com/santa_dial/" target="_blank" rel="noopener" aria-label="Follow SantaDial on Instagram"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="#fff"/></svg></i><b>Follow</b><small>Instagram</small></a><a class="fbtn tt" href="https://www.tiktok.com/@santa_dial" target="_blank" rel="noopener" aria-label="Follow SantaDial on TikTok"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></i><b>Follow</b><small>TikTok</small></a><a class="fbtn fb" href="https://www.facebook.com/profile.php?id=1357164660824561" target="_blank" rel="noopener" aria-label="Follow SantaDial on Facebook"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></i><b>Follow</b><small>Facebook</small></a></div></div>
    <ul class="facts"><li>Free sample call</li><li>3 calls for £3.99</li><li>No subscription</li><li>For anyone who loves Christmas</li></ul>
    <div class="qr"><img src="img/qr-get.svg" alt="QR code to get the SantaDial app" width="92" height="92"><div><b>On a computer?</b><span>Point your phone camera here to get the app.</span></div></div>
   </div>
@@ -360,6 +388,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  <p class="fine" style="margin-top:22px">Read more: <a href="parents/">the parents' guide</a>, <a href="talk-to-santa-live/">Talk to Santa live</a> and <a href="santa-call-vs-santa-video/">Santa call or Santa video?</a></p>
 </div></section>
 
+<section class="followband js-prelaunch" id="follow"><div class="wrap"><div class="eyebrow">Coming soon</div><h2>Be first in line for <span class="gold">Santa's free calls</span></h2><p>SantaDial is arriving on the App Store and Google Play very soon. Follow us now and you will be the first to know, the first to try it, and the first to get the free calls.</p><div class="fbtns"><a class="fbtn ig" href="https://www.instagram.com/santa_dial/" target="_blank" rel="noopener" aria-label="Follow SantaDial on Instagram"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="#fff"/></svg></i><b>Follow</b><small>Instagram</small></a><a class="fbtn tt" href="https://www.tiktok.com/@santa_dial" target="_blank" rel="noopener" aria-label="Follow SantaDial on TikTok"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></i><b>Follow</b><small>TikTok</small></a><a class="fbtn fb" href="https://www.facebook.com/profile.php?id=1357164660824561" target="_blank" rel="noopener" aria-label="Follow SantaDial on Facebook"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></i><b>Follow</b><small>Facebook</small></a></div></div></section>
 <section class="final"><div class="wrap">
  <img class="santa rv" src="img/santa.jpg" alt="Santa taking a selfie at the North Pole" width="112" height="112" loading="lazy">
  <h2 class="rv">Santa is by the phone. <span class="gold">Shall we ring him?</span></h2>
@@ -378,7 +407,8 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
 
 <div class="dock" id="dock">
  <img src="img/logo-256.jpg" alt="" width="40" height="40">
- <div><b>SantaDial</b><span>Free sample call</span></div>
+ <div><b>SantaDial</b><span id="dockline">Free sample call</span></div>
+ <div class="dfollow"><a class="ig" href="https://www.instagram.com/santa_dial/" target="_blank" rel="noopener" aria-label="Follow on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="#fff"/></svg></a><a class="tt" href="https://www.tiktok.com/@santa_dial" target="_blank" rel="noopener" aria-label="Follow on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a><a class="fb" href="https://www.facebook.com/profile.php?id=1357164660824561" target="_blank" rel="noopener" aria-label="Follow on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div>
  <a class="store js-ios" href="get/?src=home" aria-label="Download on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
  <a class="store js-android" href="get/?src=home" aria-label="Get it on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon fill="#00C3FF" points="3,2 3,22 13,12"/><polygon fill="#00E676" points="3,2 13,12 16.6,9.6"/><polygon fill="#FF3D47" points="3,22 13,12 16.6,14.4"/><polygon fill="#FFD400" points="16.6,9.6 21,12 16.6,14.4 13,12"/></svg><span><small>Get it on</small>Google Play</span></a>
 </div>
@@ -410,6 +440,9 @@ var ANDROID_URL = "https://play.google.com/store/apps/details?id=com.santadial.a
   if (!IOS_LIVE && !ANDROID_LIVE) document.getElementById("storenote").textContent = "Arriving on the App Store and Google Play very soon. Tap to follow launch day.";
   else if (!IOS_LIVE) document.getElementById("storenote").textContent = "Try a free sample call. On Google Play now, iPhone very soon.";
   else if (!ANDROID_LIVE) document.getElementById("storenote").textContent = "Try a free sample call. On the App Store now, Android very soon.";
+  // Until both stores are live: push visitors to follow us. Hidden once both are live.
+  if (IOS_LIVE && ANDROID_LIVE) { $$(".js-prelaunch").forEach(function (e) { e.style.display = "none"; }); }
+  else { document.body.classList.add("prelaunch"); var dl = document.getElementById("dockline"); if (dl) dl.textContent = "Follow for free calls"; }
   // Sleeps until Christmas
   var now = new Date(), y = now.getFullYear(), xmas = new Date(y, 11, 25);
   var days = Math.ceil((xmas - new Date(y, now.getMonth(), now.getDate())) / 864e5);
