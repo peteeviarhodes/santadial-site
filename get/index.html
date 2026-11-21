@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SantaDial: a live call with Santa</title>
-<meta name="description" content="A live call with Santa. Not a recording. He answers back, by name. Coming soon to iPhone and Android.">
+<meta name="description" content="A live call with Santa. Not a recording. He answers back, by name. Live on Google Play now. Coming very soon to iPhone.">
 <meta property="og:title" content="SantaDial: a live call with Santa">
-<meta property="og:description" content="Not a recording. He answers back, by name. Coming soon to iPhone and Android.">
+<meta property="og:description" content="Not a recording. He answers back, by name. Live on Google Play now. Coming very soon to iPhone.">
 <meta property="og:image" content="https://santadial.app/img/logo-256.jpg">
 <link rel="icon" href="../img/logo-256.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@500;600&display=swap" rel="stylesheet">
@@ -25,6 +25,12 @@ a.btn{display:block;height:56px;line-height:56px;border-radius:28px;font-weight:
 .primary{background:var(--red);color:#fff}
 .secondary{border:1.5px solid var(--gold);color:var(--gold)}
 .hidden{display:none}
+.live-badge{display:inline-block;font-size:12px;letter-spacing:2px;font-weight:600;color:#fff;background:rgba(0,200,120,.18);border:1px solid rgba(0,230,140,.5);border-radius:14px;padding:4px 12px;margin-bottom:6px}
+.live-badge::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#2fe58f;margin-right:7px;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+a.btn.pulse{animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(198,47,42,.65)}70%{box-shadow:0 0 0 16px rgba(198,47,42,0)}100%{box-shadow:0 0 0 0 rgba(198,47,42,0)}}
+@media (prefers-reduced-motion:reduce){a.btn.pulse,.live-badge::before{animation:none}}
 small{display:block;margin-top:22px;color:rgba(255,255,255,.5);font-size:13px;line-height:1.6}
 </style>
 </head>
@@ -36,20 +42,21 @@ small{display:block;margin-top:22px;color:rgba(255,255,255,.5);font-size:13px;li
   <h1>A live call with Santa</h1>
   <p>Not a recording. He answers back, live, and he knows their name.</p>
 
+  <div id="stores" class="hidden">
+    <div class="live-badge" id="live-badge">LIVE NOW</div>
+    <p>Try a free sample call.</p>
+    <a class="btn primary hidden" id="ios-btn" href="#">Get it on the App Store</a>
+    <a class="btn primary hidden pulse" id="android-btn" href="#">Get it on Google Play</a>
+  </div>
+
   <div id="soon">
-    <p class="soon" id="soon-text">Coming soon to iPhone and Android. Follow us for launch day.</p>
+    <p class="soon" id="soon-text">Live on Google Play now. Coming very soon to iPhone. Follow us for launch day.</p>
     <a class="btn primary" href="https://www.instagram.com/santa_dial/">Follow on Instagram</a>
     <a class="btn secondary" href="https://www.tiktok.com/@santa_dial">Follow on TikTok</a>
     <a class="btn secondary" href="https://www.facebook.com/profile.php?id=1357164660824561">Follow on Facebook</a>
     <a class="btn secondary" href="https://www.youtube.com/channel/UCkLgzPUYMEvaZfRGzONwFaQ">Follow on YouTube</a>
-    <a class="btn secondary" id="wait-btn" href="mailto:support@santadial.app?subject=Launch%20list&amp;body=Please%20tell%20me%20when%20SantaDial%20is%20live.%0A%0AI%20use%3A%20iPhone%20or%20Android%3F">Email me on launch day</a>
+    <a class="btn secondary" id="wait-btn" href="mailto:support@santadial.app?subject=iPhone%20launch%20list&amp;body=Please%20tell%20me%20the%20moment%20SantaDial%20is%20on%20the%20App%20Store.%0A%0AMy%20phone%3A%20iPhone%3F">Email me when iPhone is live</a>
     <p class="soon" style="font-size:13px;margin:0;color:rgba(255,255,255,.55)">This opens your email app. We only use your address to tell you when SantaDial is live.</p>
-  </div>
-
-  <div id="stores" class="hidden">
-    <p>Try a free sample call.</p>
-    <a class="btn primary hidden" id="ios-btn" href="#">Get it on the App Store</a>
-    <a class="btn secondary hidden" id="android-btn" href="#">Get it on Google Play</a>
   </div>
 
   <small>Set up by a grown-up. Santa's voice is AI. <a href="../privacy/" style="color:inherit">Privacy</a></small>
@@ -57,7 +64,7 @@ small{display:block;margin-top:22px;color:rgba(255,255,255,.5);font-size:13px;li
 <script>
 // LAUNCH SWITCHES: set to true when each store is live. Nothing else needs changing.
 var IOS_LIVE = false;
-var ANDROID_LIVE = false;
+var ANDROID_LIVE = true;
 // Apple campaign tracking: paste the provider token (pt) from App Store Connect > Analytics > Campaign link generator.
 var APPLE_PT = "";
 
@@ -74,16 +81,24 @@ var ua = navigator.userAgent || "";
 if (IOS_LIVE && /iPhone|iPad|iPod/i.test(ua)) location.replace(iosLink);
 else if (ANDROID_LIVE && /Android/i.test(ua)) location.replace(androidLink);
 
-// Everyone else: show the live store buttons, or the coming soon panel.
+// Everyone else: show the live store buttons, plus a coming soon panel for any store not live yet.
 function show(id){ document.getElementById(id).classList.remove("hidden"); }
+function hide(id){ document.getElementById(id).classList.add("hidden"); }
 document.getElementById("ios-btn").href = iosLink;
 document.getElementById("android-btn").href = androidLink;
 if (IOS_LIVE || ANDROID_LIVE) {
   show("stores");
-  document.getElementById("wait-btn").classList.add("hidden");
   if (IOS_LIVE) show("ios-btn");
   if (ANDROID_LIVE) show("android-btn");
-  document.getElementById("soon-text").textContent = IOS_LIVE ? "Coming soon to Android. Follow us to hear when." : "Coming soon to iPhone. Follow us to hear when.";
+  if (IOS_LIVE && ANDROID_LIVE) hide("soon");
+  else document.getElementById("soon-text").textContent = IOS_LIVE
+    ? "Android is coming very soon. Follow us to hear the moment it lands."
+    : "iPhone is coming very soon. Follow us or email us and we will tell you the moment it lands.";
+  // An iPhone can't use the Android app, so show it the iPhone message only.
+  if (!IOS_LIVE && /iPhone|iPad|iPod/i.test(ua)) {
+    hide("stores");
+    document.getElementById("soon-text").textContent = "Live on Android now. SantaDial is coming very soon to iPhone. Follow us or email us and we will tell you the moment it lands.";
+  }
 }
 </script>
 <script src="../snow.js"></script>
