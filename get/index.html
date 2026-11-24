@@ -87,16 +87,23 @@ var src = (new URLSearchParams(location.search).get("src") || "direct").replace(
 var iosLink = APPLE_PT ? IOS_URL + "?pt=" + APPLE_PT + "&ct=" + src + "&mt=8" : IOS_URL;
 var androidLink = ANDROID_URL + "&referrer=" + encodeURIComponent("utm_source=" + src + "&utm_medium=social");
 
+// Tells us (Slack alert) that someone is heading to a store. No personal data sent.
+function ping(platform){
+  try { fetch("https://nduzllvrvwgktbsonjie.supabase.co/functions/v1/store-click", {method:"POST", keepalive:true, headers:{"Content-Type":"application/json"}, body:JSON.stringify({platform:platform, src:src})}); } catch(e) {}
+}
+
 // Phones go straight to their store once it is live.
 var ua = navigator.userAgent || "";
-if (IOS_LIVE && /iPhone|iPad|iPod/i.test(ua)) location.replace(iosLink);
-else if (ANDROID_LIVE && /Android/i.test(ua)) location.replace(androidLink);
+if (IOS_LIVE && /iPhone|iPad|iPod/i.test(ua)) { ping("ios"); location.replace(iosLink); }
+else if (ANDROID_LIVE && /Android/i.test(ua)) { ping("android"); location.replace(androidLink); }
 
 // Everyone else: show the live store buttons, plus a coming soon panel for any store not live yet.
 function show(id){ document.getElementById(id).classList.remove("hidden"); }
 function hide(id){ document.getElementById(id).classList.add("hidden"); }
 document.getElementById("ios-btn").href = iosLink;
 document.getElementById("android-btn").href = androidLink;
+document.getElementById("ios-btn").addEventListener("click", function(){ ping("ios"); });
+document.getElementById("android-btn").addEventListener("click", function(){ ping("android"); });
 if (IOS_LIVE || ANDROID_LIVE) {
   show("stores");
   if (IOS_LIVE) show("ios-btn");
