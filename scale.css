@@ -1,0 +1,9 @@
+/* Big screens: scale the whole page up in steps so it fills the space instead of sitting small in the middle. */
+:root{--z:1}
+@media(min-width:1600px){:root{--z:1.2}}
+@media(min-width:1900px){:root{--z:1.4}}
+@media(min-width:2300px){:root{--z:1.7}}
+@media(min-width:2800px){:root{--z:2}}
+@media(min-width:3400px){:root{--z:2.4}}
+@media(min-width:4200px){:root{--z:3}}
+@media(min-width:1600px){body{zoom:var(--z)}}
