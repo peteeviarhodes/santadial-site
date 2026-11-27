@@ -309,7 +309,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
 .hero .follow p.ask{color:#2a1418}.hero .follow p.ask b{color:#7a1022;display:block;font-size:17px;margin-bottom:2px}
 .hero .fbtn{color:#2a1418}.hero .fbtn small{color:#5a4a4a}
 .hero .facts{justify-content:center}.hero .facts li{background:#F1E3C4;border-color:#E3CD98;color:#5E0F23}.hero .facts li::before{color:#B98A2E}
-.hero .qr{justify-content:center;color:#2a1418}.hero .qr span{color:#5a4a4a}
+.hero .qr{justify-content:center;color:#2a1418;margin-left:auto;margin-right:auto}.hero .qr b{color:#5E0F23}.hero .qr span{color:#5a4a4a}
 .hero .drift{display:none}
 @media(min-width:940px){
  .hero .wrap{max-width:1120px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;padding:0 20px;gap:40px}
@@ -368,6 +368,24 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
 @media(min-width:2800px){:root{--z:2}}
 @media(min-width:3400px){:root{--z:2.4}}
 @media(min-width:4200px){:root{--z:3}}
+
+/* festive countdown */
+.count{display:inline-block;margin:0 auto 20px;padding:14px 16px 16px;border-radius:22px;background:linear-gradient(180deg,#FFF9EC,#F3E5C6);border:1px solid #E3CD98;box-shadow:0 10px 26px rgba(94,15,35,.12),inset 0 1px 0 #fff;max-width:100%}
+.cthead{display:flex;align-items:center;justify-content:center;gap:10px;font:600 13px/1.2 Inter,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#7a1022;margin-bottom:12px}
+.cthead svg{width:14px;height:14px;fill:#C9963F;animation:tw 2.4s ease-in-out infinite}.cthead svg:last-child{animation-delay:1.2s}
+@keyframes tw{0%,100%{transform:scale(1) rotate(0);opacity:1}50%{transform:scale(1.35) rotate(25deg);opacity:.65}}
+.ctgrid{display:flex;align-items:flex-start;justify-content:center;gap:6px}
+.ctgrid>i{font:700 28px/58px Playfair Display,Georgia,serif;color:#C9963F;font-style:normal;animation:blinkc 1s steps(2) infinite}
+@keyframes blinkc{50%{opacity:.25}}
+.ct{position:relative;min-width:64px;padding:0 6px 8px;text-align:center;border-radius:14px;background:linear-gradient(180deg,#7a1630,#4A0B1C);border:2px solid #D9A94F;box-shadow:0 6px 14px rgba(74,11,28,.35)}
+.ct::before{content:"";position:absolute;left:10px;right:10px;top:-5px;height:8px;border-radius:5px;background:repeating-linear-gradient(135deg,#E0453B 0 6px,#FBF6EA 6px 12px)}
+.ct b{display:block;font:700 34px/52px 'Playfair Display',Georgia,serif;color:#FBF4E6;font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.ct small{display:block;font:600 10.5px/1 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#F6DFA8}
+.ct.sec b.pop{animation:popn .45s ease-out}
+@keyframes popn{0%{transform:translateY(-6px) scale(1.12);color:#F6DFA8}100%{transform:none}}
+.count.done .ctgrid{display:none}.count.done .cthead{margin:0;font-size:15px}
+@media(max-width:380px){.ct{min-width:56px}.ct b{font-size:30px}.ctgrid{gap:3px}}
+@media(prefers-reduced-motion:reduce){.cthead svg,.ctgrid>i,.ct.sec b.pop{animation:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it a recording?", "acceptedAnswer": {"@type": "Answer", "text": "No. Santa answers live. He listens to what your child says and replies to it, so every call goes a little differently."}}, {"@type": "Question", "name": "Is Santa a real person?", "acceptedAnswer": {"@type": "Answer", "text": "No. Santa's voice is AI, and we say so up front. A grown-up sets everything up and stays in charge."}}, {"@type": "Question", "name": "How long is a call?", "acceptedAnswer": {"@type": "Answer", "text": "A call lasts up to about 5 minutes. Santa wraps up kindly, and may run slightly over so he can answer your child's last question."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Your first call is a free sample call, once per family. It is a short taste of the full call, which lasts up to about 5 minutes. After that it is 3 calls for £3.99 in the UK, paid once with no subscription. The price in your own store may differ."}}, {"@type": "Question", "name": "What does Santa need to know?", "acceptedAnswer": {"@type": "Answer", "text": "Just a first name. You can also tell him how to say it, their age, brothers and sisters, pets, wishes and what they are proud of. We never ask for a surname, address, school or photos."}}, {"@type": "Question", "name": "Can Santa ring us instead?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. In the grown-ups area you confirm your own UK mobile number with a text code and choose a time. Santa rings you then, and it uses one call."}}, {"@type": "Question", "name": "Is it safe for children?", "acceptedAnswer": {"@type": "Answer", "text": "Grown-ups set it up behind a grown-ups check. Santa never asks children for personal information. If a child shares something sensitive he responds kindly and points them to a trusted grown-up. The app has no adverts and no tracking."}}, {"@type": "Question", "name": "Who is it for?", "acceptedAnswer": {"@type": "Answer", "text": "It is for anyone who loves Christmas. Many callers are children, and big kids, grandparents and whole families are just as welcome. A carer or family member can also set it up for an older person, for example someone with a learning disability."}}]}</script>
 </head>
@@ -384,7 +402,10 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  <div class="aurora" aria-hidden="true"></div>
  <div class="wrap">
   <div>
-   <div class="chip"><i></i><span id="sleeps">Santa is taking calls at the North Pole</span></div>
+   <div class="count" id="count" role="timer" aria-live="off">
+    <div class="cthead"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 6.6L21 9l-5.2 4.2L17.6 20 12 16.2 6.4 20l1.8-6.8L3 9l6.6-.4z"/></svg><span id="sleeps">Counting down to Christmas</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 6.6L21 9l-5.2 4.2L17.6 20 12 16.2 6.4 20l1.8-6.8L3 9l6.6-.4z"/></svg></div>
+    <div class="ctgrid" id="ctgrid"><div class="ct"><b id="cd-d">--</b><small>days</small></div><i>:</i><div class="ct"><b id="cd-h">--</b><small>hours</small></div><i>:</i><div class="ct"><b id="cd-m">--</b><small>mins</small></div><i>:</i><div class="ct sec"><b id="cd-s">--</b><small>secs</small></div></div>
+   </div>
    <h1>A live call with Santa. <span class="gold">He answers back.</span></h1>
    <p class="lede">Not a recording. A grown-up tells Santa a few things about your child, then your child talks to him live and he talks back by name. Santa's voice is AI, and a grown-up is always in charge.</p>
    <ul class="trio"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Live<br>conversation</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20v-1.5A5.5 5.5 0 0 1 8.5 13h1A5.5 5.5 0 0 1 15 18.5V20"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a4.5 4.5 0 0 1 4.5 4.5V20"/></svg>Personalised<br>by name</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.5 3.1 8.2 7.5 9.5 4.4-1.3 7.5-5 7.5-9.5V6z"/><path d="m8.6 12.2 2.6 2.6 4.4-4.8"/></svg>Safe &amp;<br>parent controlled</li></ul>
@@ -545,10 +566,27 @@ var ANDROID_URL = "https://play.google.com/store/apps/details?id=com.santadial.a
   // Until both stores are live: push visitors to follow us. Hidden once both are live.
   if (IOS_LIVE && ANDROID_LIVE) { $$(".js-prelaunch").forEach(function (e) { e.style.display = "none"; }); }
   else if (!(ANDROID_LIVE && !isIOS)) { document.body.classList.add("prelaunch"); var dl = document.getElementById("dockline"); if (dl) dl.textContent = ANDROID_LIVE ? "iPhone coming very soon" : "Follow for free calls"; }
-  // Sleeps until Christmas
-  var now = new Date(), y = now.getFullYear(), xmas = new Date(y, 11, 25);
-  var days = Math.ceil((xmas - new Date(y, now.getMonth(), now.getDate())) / 864e5);
-  if (days > 0 && days <= 120) document.getElementById("sleeps").textContent = days + (days === 1 ? " sleep" : " sleeps") + " until Christmas";
+  // Festive countdown to Christmas morning (visitor's own clock)
+  (function () {
+    var box = document.getElementById("count"), lab = document.getElementById("sleeps");
+    var d = document.getElementById("cd-d"), h = document.getElementById("cd-h"), m = document.getElementById("cd-m"), sc = document.getElementById("cd-s");
+    var now0 = new Date(), yr = now0.getFullYear();
+    var xmas = new Date(yr, 11, 25, 0, 0, 0);
+    if (now0 >= new Date(yr, 11, 26)) xmas = new Date(yr + 1, 11, 25, 0, 0, 0);
+    function two(n) { return n < 10 ? "0" + n : "" + n; }
+    function tick() {
+      var now = new Date(), ms = xmas - now;
+      if (now.getMonth() === 11 && now.getDate() === 25) { box.classList.add("done"); lab.textContent = "Merry Christmas from Santa and the elves!"; return false; }
+      if (ms < 0) ms = 0;
+      var t = Math.floor(ms / 1000), days = Math.floor(t / 86400);
+      d.textContent = days; h.textContent = two(Math.floor(t % 86400 / 3600)); m.textContent = two(Math.floor(t % 3600 / 60));
+      var ns = two(t % 60); if (sc.textContent !== ns) { sc.textContent = ns; sc.classList.remove("pop"); void sc.offsetWidth; sc.classList.add("pop"); }
+      var sleeps = Math.ceil(ms / 864e5);
+      lab.textContent = sleeps + (sleeps === 1 ? " sleep" : " sleeps") + " until Christmas";
+      return true;
+    }
+    if (tick()) setInterval(tick, 1000);
+  })();
   // Sticky download bar appears once the hero buttons scroll away
   var dock = document.getElementById("dock"), hero = document.querySelector(".js-hero");
   if ("IntersectionObserver" in window) {
